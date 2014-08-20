@@ -28,7 +28,7 @@
 
 2- Single Item Post
 
-         .js:
+    <pre class="js">
          var username = $('#username').val(); 
          var data = 'uname=' + username; 
          
@@ -38,14 +38,16 @@
                             dataType: "html",          
                             data: data           
           });
-          
+    </pre>      
           .php:
+          <pre class="php">
           $userName = $_POST['uname']); 
-
+</pre> 
 3- Multipile Item Post
 
 A: Initialize data out of the ajax method:
 
+ <pre class="js">
 
         //var name = $('.uname').val(); 
         //var pwd = $('.passwd').val(); 
@@ -54,25 +56,28 @@ A: Initialize data out of the ajax method:
         var name = "FILE"; 
         var pwd = "NAMA"; 
         var data='uname='+name+'&password='+pwd; 
-        
+   </pre>        
         Then Pass data into data
  
 
 B: Initialize data inside the ajax call on data property
 
           .js:
+            <pre class="js">
          var req = $.ajax({
                             type: "POST",            
                             url: "filemaker.php",
                             dataType: "html",          
                             data: { dir: "John", word: "Boston"}          
           });
+          </pre>
           
           .php:
+           <pre class="php">
               $dir  = trim($_POST['dir']); 
               $word = trim($_POST['word']);
               
-
+</pre>
 be aware that the data array also can be very straight like 
 
                              data: { dir: $('#files :selected').text(), word: $("#fword").val()} 
@@ -98,6 +103,7 @@ $.ajax({
   <script>
    $(function() {
  $("pre.js").snippet("javascript",{style:"acid",transparent:false,showNum:true});
+ $("pre.php").snippet("php",{style:"acid",transparent:false,showNum:true});
 });
 </script>
   </body>
