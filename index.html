@@ -22,7 +22,60 @@
   </head>
   <body>
     <div class="container">
-      
+      There Several Ways
+
+1- Serialize Form
+
+2- Single Item Post
+
+         .js:
+         var username = $('#username').val(); 
+         var data = 'uname=' + username; 
+         
+         var req = $.ajax({
+                            type: "POST",            
+                            url: "filemaker.php",
+                            dataType: "html",          
+                            data: data           
+          });
+          
+          .php:
+          $userName = $_POST['uname']); 
+
+3- Multipile Item Post
+
+A: Initialize data out of the ajax method:
+
+
+        //var name = $('.uname').val(); 
+        //var pwd = $('.passwd').val(); 
+        //var data='uname='+name+'&password='+pwd; 
+        
+        var name = "FILE"; 
+        var pwd = "NAMA"; 
+        var data='uname='+name+'&password='+pwd; 
+        
+        Then Pass data into data
+ 
+
+B: Initialize data inside the ajax call on data property
+
+          .js:
+         var req = $.ajax({
+                            type: "POST",            
+                            url: "filemaker.php",
+                            dataType: "html",          
+                            data: { dir: "John", word: "Boston"}          
+          });
+          
+          .php:
+              $dir  = trim($_POST['dir']); 
+              $word = trim($_POST['word']);
+              
+
+be aware that the data array also can be very straight like 
+
+                             data: { dir: $('#files :selected').text(), word: $("#fword").val()} 
       
     <pre class="js">
 &lt;script>
