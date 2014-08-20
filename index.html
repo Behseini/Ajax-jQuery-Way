@@ -24,15 +24,16 @@
     <div class="container">
       
       
-      <pre class="htmlcode">
-      &lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;body&gt;
-
-
-&lt;/body&gt;
-&lt;/html&gt;
-      </pre>
+    <pre class="js">
+&lt;script>
+$.ajax({
+  url: "test.html",
+  context: document.body
+}).done(function() {
+  $( this ).addClass( "done" );
+});
+&lt;/script&gt;
+</pre>
       
     </div><!-- End of Container -->
 
@@ -43,7 +44,7 @@
    <script src="http://www.steamdev.com/snippet/js/jquery.snippet.min.js"></script>
   <script>
    $(function() {
- $("pre.htmlCode").snippet("html");
+ $("pre.js").snippet("javascript",{style:"random",transparent:false,showNum:true});
 });
 </script>
   </body>
