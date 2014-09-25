@@ -1,0 +1,51 @@
+<form id="myform">
+<div class="window loginWindow sn-login">
+    <div>
+        <input type="text" id="UserName" placeholder='Username' />
+    </div>
+    <div>
+        <input type="password" id="Password" placeholder='Password' />
+    </div>
+    <div>
+        <div>
+            <input type="checkbox" id="RememberMe" />
+            <label for="RememberMe">Remember my login</label>
+        </div>
+        <div>
+            <button class="loginSubmit">Login</button>
+        </div>
+    </div>
+</div>
+</form>
+
+
+$("#myform").submit(function(){
+
+
+var $userName = $("#UserName"),
+    $rememberMe = $("#RememberMe"),
+    $password = $("#Password");
+
+var name = $userName.val(), pw = $password.val();
+$.ajax({
+    type: "POST",
+    url: "/UserActions/LogIn",
+    dataType: "json",
+    data: { password: pw, email: name },
+    success: function (data) {
+        if (data.success) {
+            if ($rememberMe.is(":checked")) {
+                // Omitted for brevity
+            }
+
+            window.location.reload();
+        }
+        else {
+            // Omitted for brevity
+        }
+    }
+});
+return false;
+});
+
+});
